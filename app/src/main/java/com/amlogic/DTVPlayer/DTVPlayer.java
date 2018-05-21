@@ -2,7 +2,6 @@ package com.amlogic.DTVPlayer;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 
 public class DTVPlayer extends Activity {
@@ -83,12 +82,9 @@ public class DTVPlayer extends Activity {
             e.printStackTrace();
         }*/
 
+        Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage("com.android.dtv");
+        startActivity(LaunchIntent);
+        finish();
 
-
-        if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ) {
-            Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage("com.android.dtv");
-            startActivity(LaunchIntent);
-            finish();
-        }
     }
 }
